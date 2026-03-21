@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Validate Markdown Links",
+      "type": "shell",
+      "command": "uv",
+      "args": [
+        "run",
+        "scripts/validate_markdown_links.py",
+        "--root",
+        "."
+      ],
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

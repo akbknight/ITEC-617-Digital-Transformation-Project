@@ -1,0 +1,36 @@
+name: Tests & Link Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Run tests
+        run: uv run --with pytest pytest tests/ -v
+
+      - name: Validate internal markdown links
+        run: |
+          uv run scripts/validate_markdown_links.py \
+            --root . \
+            --report link-validation-report.md \
+            --title "Internal Markdown Link Validation Report"
+
+      # Report artifact is available for download from the Actions tab
+      - name: Upload link validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: markdown-link-validation-report
+          path: link-validation-report.md
+          retention-days: 30

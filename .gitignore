@@ -1,0 +1,52 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables (secrets - never commit API keys)
+.env
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/tasks.json
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Claude Code local settings (not shared)
+.claude/settings.local.json
+.claude/plans/
+
+# Student-specific content (not shared in repo template)
+student-workspace/slides/*.pptx
+student-workspace/slides/*.pdf
+student-workspace/extracted/presentation-content.md
+student-workspace/extracted/slide-images/
+student-workspace/extracted/progress-report.md
+
+# Student-uploaded assignment deliverables
+student-workspace/source-docs/*.pdf
+student-workspace/source-docs/*.docx
+student-workspace/source-docs/*.xlsx
+student-workspace/source-docs/*.txt
+
+# Instructor-only content (not shipped to student template copies)
+instructor-docs/
